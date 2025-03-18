@@ -9,4 +9,7 @@ public class Cotxe {
         super();
         this.plaçes = plaçes;
     }
+    public int getPlaçes(){
+        return plaçes;
+    }
 }
