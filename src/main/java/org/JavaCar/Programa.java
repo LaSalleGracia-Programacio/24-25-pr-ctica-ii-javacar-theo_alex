@@ -14,16 +14,34 @@ public class Programa {
         System.out.println("2. Retornar vehicle");
         System.out.println("3. Gestiona els teus lloguers");
         System.out.println("4. Preferències");
-        System.out.println("5. Sortir");
+        System.out.println("5. Cerca vehicles disponibles");
+        System.out.println("6. Sortir");
         opcio = Main.scanner.nextInt();
+        Main.scanner.nextLine();
 
-        switch (opcio){
+
+        switch (opcio) {
             case 1:
                 new Lloguer();
                 break;
+            case 2:
+                new Retornar();
+                break;
+            case 3:
+                GestorLloguers.gestionarLloguers();
+                break;
+            case 4:
+                Preferències.mostrarMenu();
+                break;
             case 5:
-                String criteri = Main.scanner.nextLine();
-                Cercador.cercar(vehicles, criteri);
+                Cercador.cercar(vehicles);
+                break;
+            case 6:
+                System.out.println("Adeu!");
+                System.exit(0);
+                break;
+            default:
+                System.out.println("Opció no vàlida. Torna-ho a provar.");
                 break;
         }
     }

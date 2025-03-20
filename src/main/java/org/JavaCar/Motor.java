@@ -12,4 +12,17 @@ public class Motor {
     public int getPotencia(){
         return potencia;
     }
+    public String getTipus(){
+        return tipus;
+    }
+    public void setPotencia(int potencia){
+        this.potencia = potencia;
+    }
+    public void setTipus(String tipus){
+        this.tipus = tipus;
+    }
+    public String toString(){
+        return "Tipus: " + tipus + ", Potencia: " + potencia;
+    }
+
 }
