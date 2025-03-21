@@ -77,4 +77,14 @@ public class Cercador {
             }
         }
     }
+
+    public static List<Vehicle> cercarPerMatricula(List<Vehicle> vehicles, String matricula) {
+        List<Vehicle> resultats = new ArrayList<>();
+        for (Vehicle vehicle : vehicles) {
+            if (vehicle.getMatricula().equalsIgnoreCase(matricula)) {
+                resultats.add(vehicle);
+            }
+        }
+        return resultats;
+    }
 }

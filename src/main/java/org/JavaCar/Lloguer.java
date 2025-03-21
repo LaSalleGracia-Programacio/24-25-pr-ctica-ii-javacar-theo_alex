@@ -1,5 +1,7 @@
 package org.JavaCar;
 
+import java.util.List;
+
 public class Lloguer {
     private Vehicle vehicle;
     private int dies;
@@ -18,10 +20,6 @@ public class Lloguer {
     }
 
     public void ampliarDies(int diesAddicionals) {
-        this.dies += diesAddicionals;
-    }
-
-    public double preuFinal() {
-        return vehicle.preuTotal() * dies;
+        this.dies = this.dies + diesAddicionals;
     }
 }

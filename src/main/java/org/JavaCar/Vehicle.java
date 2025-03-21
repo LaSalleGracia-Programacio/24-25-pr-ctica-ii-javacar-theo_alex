@@ -2,11 +2,11 @@ package org.JavaCar;
 
 import java.util.List;
 
-public class Vehicle {
-    private String matricula;
-    private String marca;
-    private String model;
-    private double preuBase;
+public abstract class Vehicle implements Llogable {
+    protected String matricula;
+    protected String marca;
+    protected String model;
+    protected double preuBase;
     private Motor motor;
     private List<Roda> rodes;
     private String etiquetaAmbiental;
@@ -60,8 +60,8 @@ public class Vehicle {
         return tipus;
     }
 
-    public List<Roda> getRodes() {
-        return rodes;
+    public Object[] getRodes() {
+        return new List[]{rodes};
     }
 
     public int getPlaces() {
@@ -97,11 +97,5 @@ public class Vehicle {
         this.tipus = tipus;
     }
 
-    public double preuTotal() {
-        double preuTotal = preuBase;
-        for (Roda roda : rodes) {
-            preuTotal += roda.getDiametre() * 100;
-        }
-        return preuTotal;
-    }
+    public abstract double calcularPreu(int dies);
 }
