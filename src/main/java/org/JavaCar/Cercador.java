@@ -62,14 +62,19 @@ public class Cercador {
                         resultats.add(vehicle);
                     }
                 }
-                if (resultats.isEmpty()) {
-                    System.out.println("No s'han trobat resultats.");
-                } else {
-                    System.out.println("Resultats trobats:");
-                    for (Vehicle vehicle : resultats) {
-                        System.out.println(vehicle);
-                    }
-                }
+                break;
+            default:
+                System.out.println("Opció no vàlida.");
+                return;
+        }
+
+        if (resultats.isEmpty()) {
+            System.out.println("No s'han trobat resultats.");
+        } else {
+            System.out.println("Resultats trobats:");
+            for (Vehicle vehicle : resultats) {
+                System.out.println(vehicle);
+            }
         }
     }
 }

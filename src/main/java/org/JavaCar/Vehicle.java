@@ -60,16 +60,16 @@ public class Vehicle {
         return tipus;
     }
 
-    public List<Roda> rodes() {
+    public List<Roda> getRodes() {
         return rodes;
     }
+
     public int getPlaces() {
         return 0;
     }
 
     public void setEtiquetaAmbiental(String etiquetaAmbiental) {
         this.etiquetaAmbiental = etiquetaAmbiental;
-        this.calcularEtiquetaAmbiental();
     }
 
     public void setPreuBase(double preuBase) {
@@ -99,17 +99,9 @@ public class Vehicle {
 
     public double preuTotal() {
         double preuTotal = preuBase;
-        for (Roda r : rodes) {
-            preuTotal += r.getDiametre() * 100;
+        for (Roda roda : rodes) {
+            preuTotal += roda.getDiametre() * 100;
         }
         return preuTotal;
-    }
-
-    public void addRoda(Roda r) {
-        rodes.add(r);
-    }
-
-    public void removeRoda(Roda r) {
-        rodes.remove(r);
     }
 }

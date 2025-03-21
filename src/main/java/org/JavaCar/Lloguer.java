@@ -1,9 +1,27 @@
 package org.JavaCar;
 
 public class Lloguer {
-    public Lloguer() {
-        System.out.println("Introdueix la matrícula del vehicle a llogar:");
-        String matricula = Main.scanner.nextLine();
-        System.out.println("Lloguer processat per matrícula: " + matricula);
+    private Vehicle vehicle;
+    private int dies;
+
+    public Lloguer(Vehicle vehicle, int dies) {
+        this.vehicle = vehicle;
+        this.dies = dies;
+    }
+
+    public Vehicle getVehicle() {
+        return vehicle;
+    }
+
+    public int getDies() {
+        return dies;
+    }
+
+    public void ampliarDies(int diesAddicionals) {
+        this.dies += diesAddicionals;
+    }
+
+    public double preuFinal() {
+        return vehicle.preuTotal() * dies;
     }
 }
