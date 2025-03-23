@@ -4,10 +4,8 @@ import java.util.List;
 
 public class Llogar {
     public Llogar(List<Vehicle> vehicles, int dies) {
-        // Launch the Cercador search menu
         List<Vehicle> resultats = Cercador.cercar(vehicles);
 
-        // If results are found, let the user choose a vehicle to rent
         if (!resultats.isEmpty()) {
             System.out.println("Selecciona un vehicle per llogar (introdueix el número):");
             for (int i = 0; i < resultats.size(); i++) {
