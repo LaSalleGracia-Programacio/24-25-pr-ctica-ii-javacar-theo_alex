@@ -22,20 +22,10 @@ public class Programa {
 
             switch (opcio) {
                 case 1:
-                    System.out.println("Introdueix la matrícula del vehicle a llogar:");
-                    String matricula = Main.scanner.nextLine();
-                    List<Vehicle> resultats = Cercador.cercarPerMatricula(vehicles, matricula);
-                    if (!resultats.isEmpty()) {
-                        Vehicle vehicle = resultats.get(0);
-                        System.out.println("Introdueix el nombre de dies de lloguer:");
-                        int dies = Main.scanner.nextInt();
-                        Main.scanner.nextLine();
-                        Lloguer lloguer = new Lloguer(vehicle, dies);
-                        GestorLloguers.afegirLloguer(lloguer);
-                        System.out.println("Vehicle llogat amb èxit: " + vehicle.getMatricula());
-                    } else {
-                        System.out.println("No s'ha trobat cap vehicle amb la matrícula: " + matricula);
-                    }
+                    System.out.println("Introdueix el nombre de dies per al lloguer:");
+                    int dies = Main.scanner.nextInt();
+                    Main.scanner.nextLine();
+                    new Llogar(vehicles, dies);
                     break;
                 case 2:
                     new Retornar();

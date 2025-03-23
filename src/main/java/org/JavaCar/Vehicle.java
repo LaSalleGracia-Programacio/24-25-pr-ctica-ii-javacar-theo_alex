@@ -62,7 +62,7 @@ public abstract class Vehicle implements Llogable {
 
     public Roda[] getRodes() {
         if (rodes == null) {
-            return null;
+            return new Roda[0];
         }
         return rodes.toArray(new Roda[0]);
     }
@@ -99,6 +99,4 @@ public abstract class Vehicle implements Llogable {
     public void setTipusVehicle(String tipus) {
         this.tipus = tipus;
     }
-
-    public abstract double calcularPreu(int dies);
 }

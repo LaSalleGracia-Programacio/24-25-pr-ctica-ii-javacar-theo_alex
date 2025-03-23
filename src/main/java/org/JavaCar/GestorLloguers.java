@@ -5,6 +5,7 @@ import java.util.List;
 
 public class GestorLloguers {
     private static List<Lloguer> lloguersActius = new ArrayList<>();
+
     public static boolean eliminarLloguer(String matricula) {
         Lloguer lloguer = buscarLloguer(matricula);
         if (lloguer != null) {
@@ -23,23 +24,26 @@ public class GestorLloguers {
         return null;
     }
 
-    public static void afegirLloguer(Lloguer lloguer) {
-        lloguersActius.add(lloguer);
-    }
-    public static void amplarDies(){
-        // Afegir input a programa i processar
+    public static boolean afegirLloguer(String matricula, Vehicle vehicle, int dies) {
+        Lloguer lloguer = buscarLloguer(matricula);
+        if (lloguer == null) {
+            lloguersActius.add(new Lloguer(vehicle, dies));
+        } else {
+            lloguer.ampliarDies(dies);
+        }
+        return true;
     }
 
     public static void gestionarLloguers() {
-            if (lloguersActius.isEmpty()) {
-                System.out.println("No hi ha lloguers actius.");
-            } else {
-                System.out.println("Lloguers actius:");
-                for (Lloguer lloguer : lloguersActius) {
-                    System.out.println("Vehicle: " + lloguer.getVehicle().getMatricula() + ", Dies: " + lloguer.getDies());
-                }
+        if (lloguersActius.isEmpty()) {
+            System.out.println("No hi ha lloguers actius.");
+        } else {
+            System.out.println("Lloguers actius:");
+            for (Lloguer lloguer : lloguersActius) {
+                System.out.println("Vehicle: " + lloguer.getVehicle().getMatricula() + ", Dies: " + lloguer.getDies());
             }
         }
+    }
 
     public static double calcularIngressosTotals(List<Vehicle> vehicles, int dies) {
         double ingressosTotals = 0;
