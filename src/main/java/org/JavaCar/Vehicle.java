@@ -12,7 +12,7 @@ public abstract class Vehicle implements Llogable {
     private String etiquetaAmbiental;
     private String tipus;
 
-    // Constructor
+
     public Vehicle(String matricula, String marca, String model, double preuBase,
                    Motor motor, Roda[] rodes, String tipus) {
         this.matricula = matricula;
@@ -26,10 +26,55 @@ public abstract class Vehicle implements Llogable {
     }
 
     public void calcularEtiquetaAmbiental() {
-        if (motor != null && motor.getPotencia() < 100) {
-            this.etiquetaAmbiental = "ECO";
-        } else {
-            this.etiquetaAmbiental = "C";
+        if (motor == null) {
+            this.etiquetaAmbiental = "Sense distintiu ambiental";
+            return;
+        }
+
+        String tipusCombustible = motor.getTipus();
+        int potencia = motor.getPotencia();
+
+        switch (tipusCombustible) {
+            case "Gasolina":
+                if (potencia >= 100) {
+                    this.etiquetaAmbiental = "C";
+                } else if (potencia >= 50) {
+                    this.etiquetaAmbiental = "B";
+                } else {
+                    this.etiquetaAmbiental = "Sense distintiu ambiental";
+                }
+                break;
+
+            case "Dièsel":
+                if (potencia >= 120) {
+                    this.etiquetaAmbiental = "C";
+                } else if (potencia >= 80) {
+                    this.etiquetaAmbiental = "B";
+                } else {
+                    this.etiquetaAmbiental = "Sense distintiu ambiental";
+                }
+                break;
+
+            case "Híbrid":
+                if (potencia >= 80) {
+                    this.etiquetaAmbiental = "ECO";
+                } else {
+                    this.etiquetaAmbiental = "B";
+                }
+                break;
+
+            case "Elèctric":
+                this.etiquetaAmbiental = "Zero emissions";
+                break;
+
+            case "GNC":
+            case "GLP":
+                this.etiquetaAmbiental = "ECO";
+                break;
+
+            default:
+                this.etiquetaAmbiental = "Sense distintiu ambiental";
+                break;
         }
     }
 

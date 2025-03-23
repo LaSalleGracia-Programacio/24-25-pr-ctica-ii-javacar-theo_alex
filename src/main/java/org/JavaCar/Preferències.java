@@ -8,10 +8,10 @@ public class Preferències {
             System.out.println("2. Configurar notificacions");
             System.out.println("3. Tornar al menú principal");
 
-            int subOpcio = Main.scanner.nextInt();
+            int opcio = Main.scanner.nextInt();
             Main.scanner.nextLine();
 
-            switch (subOpcio) {
+            switch (opcio) {
                 case 1:
                     System.out.println("Nou mètode de pagament:");
                     String metode = Main.scanner.nextLine();
