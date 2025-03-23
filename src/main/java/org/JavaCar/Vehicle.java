@@ -12,6 +12,7 @@ public abstract class Vehicle implements Llogable {
     private String etiquetaAmbiental;
     private String tipus;
 
+    // Constructor
     public Vehicle(String matricula, String marca, String model, double preuBase,
                    Motor motor, Roda[] rodes, String tipus) {
         this.matricula = matricula;
@@ -61,10 +62,7 @@ public abstract class Vehicle implements Llogable {
     }
 
     public Roda[] getRodes() {
-        if (rodes == null) {
-            return new Roda[0];
-        }
-        return rodes.toArray(new Roda[0]);
+        return rodes != null ? rodes.toArray(new Roda[0]) : null;
     }
 
     public int getPlaces() {
@@ -99,4 +97,5 @@ public abstract class Vehicle implements Llogable {
     public void setTipusVehicle(String tipus) {
         this.tipus = tipus;
     }
+
 }
