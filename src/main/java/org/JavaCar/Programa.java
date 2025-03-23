@@ -6,7 +6,8 @@ import java.util.List;
 public class Programa {
     public static void main(String[] args) {
         List<Vehicle> vehicles = new ArrayList<>();
-        while (true) {
+        boolean running = true;
+        do {
             System.out.println("Benvingut al servei de lloguer de vehicles!");
             System.out.println("Si us plau escull com procedir:");
             System.out.println("1. Llogar vehicle");
@@ -23,14 +24,9 @@ public class Programa {
                 case 1:
                     System.out.println("Introdueix la matrícula del vehicle a llogar:");
                     String matricula = Main.scanner.nextLine();
-                    Vehicle vehicle = null;
-                    for (Vehicle v : vehicles) {
-                        if (v.getMatricula().equals(matricula)) {
-                            vehicle = v;
-                            break;
-                        }
-                    }
-                    if (vehicle != null) {
+                    List<Vehicle> resultats = Cercador.cercarPerMatricula(vehicles, matricula);
+                    if (!resultats.isEmpty()) {
+                        Vehicle vehicle = resultats.get(0);
                         System.out.println("Introdueix el nombre de dies de lloguer:");
                         int dies = Main.scanner.nextInt();
                         Main.scanner.nextLine();
@@ -55,12 +51,12 @@ public class Programa {
                     break;
                 case 6:
                     System.out.println("Adeu!");
-                    System.exit(0);
+                    running = false;
                     break;
                 default:
                     System.out.println("Opció no vàlida. Torna-ho a provar.");
                     break;
             }
-        }
+        } while (running);
     }
 }

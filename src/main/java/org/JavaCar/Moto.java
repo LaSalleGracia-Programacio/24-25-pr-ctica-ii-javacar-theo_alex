@@ -6,7 +6,7 @@ public class Moto extends Vehicle {
     private int cilindrada;
 
     public Moto(String matricula, String marca, String model, double preuBase, int cilindrada, Motor motor, Roda[] rodes) {
-        super(matricula, marca, model, preuBase, motor, List.of(rodes), "Moto");
+        super(matricula, marca, model, preuBase, motor, rodes, "Moto");
         this.cilindrada = cilindrada;
     }
 

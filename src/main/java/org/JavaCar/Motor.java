@@ -16,12 +16,4 @@ public class Motor {
     public int getPotencia() {
         return potencia;
     }
-
-    public void setTipus(String tipus) {
-        this.tipus = tipus;
-    }
-
-    public void setPotencia(int potencia) {
-        this.potencia = potencia;
-    }
 }

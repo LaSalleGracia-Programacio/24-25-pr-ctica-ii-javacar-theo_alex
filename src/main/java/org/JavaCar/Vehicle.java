@@ -13,19 +13,19 @@ public abstract class Vehicle implements Llogable {
     private String tipus;
 
     public Vehicle(String matricula, String marca, String model, double preuBase,
-                   Motor motor, List<Roda> rodes, String tipus) {
+                   Motor motor, Roda[] rodes, String tipus) {
         this.matricula = matricula;
         this.marca = marca;
         this.model = model;
         this.preuBase = preuBase;
         this.motor = motor;
-        this.rodes = rodes;
+        this.rodes = rodes != null ? List.of(rodes) : null;
         this.calcularEtiquetaAmbiental();
         this.tipus = tipus;
     }
 
     public void calcularEtiquetaAmbiental() {
-        if (motor.getPotencia() < 100) {
+        if (motor != null && motor.getPotencia() < 100) {
             this.etiquetaAmbiental = "ECO";
         } else {
             this.etiquetaAmbiental = "C";
@@ -60,8 +60,11 @@ public abstract class Vehicle implements Llogable {
         return tipus;
     }
 
-    public Object[] getRodes() {
-        return new List[]{rodes};
+    public Roda[] getRodes() {
+        if (rodes == null) {
+            return null;
+        }
+        return rodes.toArray(new Roda[0]);
     }
 
     public int getPlaces() {
